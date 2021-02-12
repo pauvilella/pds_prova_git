@@ -1,0 +1,105 @@
+# Bloc 1
+mkdir pds_prova_git
+cd pds_prova_git
+git init
+> A.txt
+git add A.txt
+git commit -m "fitxer inicial"
+> B.txt
+git add B.txt
+git commit -m "fitxer inicial"
+git status
+clear
+
+# Bloc 2
+echo "Canvi A1" >> A.txt
+echo "Canvi B1" >> B.txt
+git add *
+git status
+git commit -m "canvis als fitxers A.txt i B.txt"
+git status
+clear
+
+# Bloc 3
+git branch branca1
+git checkout branca1
+git status
+> C.txt
+git add C.txt
+git commit -m "fitxer inicial"
+echo "canvi C1 branca 1" >> C.txt
+git add C.txt
+git commit -m "canvis al fitxer C.txt"
+git status
+clear
+
+# Bloc 4
+git checkout master
+git branch branca2
+git checkout branca2
+git status
+> D.txt
+git add D.txt
+git commit -m "fitxer inicial"
+echo "canvia D1 branca 2" >> D.txt
+git add D.txt
+git commit -m "canvis al fitxer D.txt"
+git status
+clear
+
+# Bloc 5
+git checkout branca1
+git merge branca2
+git status
+git checkout master
+git merge branca1
+git status
+clear
+
+# Bloc 6
+> E.txt
+git add E.txt
+git commit -m "fitxer inicial"
+git status
+git checkout -b branca3
+echo "canvia E1 branca 3" >> E.txt
+git add E.txt
+git commit -m "canvis al fitxer E.txt"
+git status
+git checkout master
+git checkout -b branca4
+echo "canvia E1 branca 4" >> E.txt
+git add E.txt
+git commit -m "canvis al fitxer E.txt"
+git checkout master
+git merge branca3
+git merge branca4
+# Apareix un conflicte perque branca3 i branca4 tenen diferents continguts de E.txt, resolc el conflicte manualment i despres faig un altre commit
+git add E.txt
+git commit -m "commit despres de resoldre el conflicte"
+git status
+clear
+
+# Bloc 7 
+echo "canvi A2" >> A.txt
+git add A.txt
+git commit -m "canvis al fitxer A.txt"
+git reset --hard 5ddb273371ff9d7051aa258e31450b4d5f6bab5e
+git status 
+clear
+
+# Bloc 8
+echo "Canvi A3" >> A.txt
+git add A.txt
+git commit -m "canvi a A.txt"
+echo "Canvi B2" >> B.txt
+git add B.txt
+git commit -m "canvi a B.txt"
+echo "Canvi C1" >> C.txt
+git add C.txt
+git commit -m "canvi a C.txt"
+git log
+git revert 3ee9393cf1087d184942a7e1d61ca3504207fe0f
+cat B.txt
+git status
+clear
